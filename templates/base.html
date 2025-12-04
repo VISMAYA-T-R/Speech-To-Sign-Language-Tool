@@ -1,0 +1,273 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Homepage</title>
+<style>
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+/* ----- GLOBAL ----- */
+body {
+  background-color: #0b1120;  /* deep navy */
+  color: #e5e7eb;             /* light text */
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ----- NAVBAR ----- */
+#nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #6366f1; /* indigo */
+}
+
+.li {
+  float: left;
+}
+
+.li a {
+  display: block;
+  color: #e5e7eb;          /* light text */
+  font-size: 20px;
+  font-weight: bold;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111827; /* dark hover */
+  color: #e5e7eb;
+  font-weight: bold;
+}
+
+/* ----- HEADINGS ----- */
+h1, h2 {
+  color: #e5e7eb;
+}
+
+/* ----- BUTTONS / FORMS ----- */
+.form-style {
+  font: 95% Arial, Helvetica, sans-serif;
+  max-width: 400px;
+  margin: 10px auto;
+  padding: 16px;
+  background-color: #111827;      /* card background */
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(15, 23, 42, 0.7);
+}
+
+.form-style h1,
+.form-style a {
+  padding: 20px 0;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: "Times New Roman";
+  text-align: center;
+  margin: -16px -16px 16px -16px;
+  color: #e5e7eb;
+  background-color: #1f2937;  /* header strip */
+  border-radius: 10px 10px 0 0;
+}
+
+/* main button */
+.form-style button {
+  width: 89%;
+  height: 70%;
+  padding: 5%;
+  background: #6366f1;          /* primary */
+  border-bottom: 2px solid #111827;
+  border-top-style: none;
+  border-right-style: none;
+  border-left-style: none;
+  color: #e5e7eb;
+  font-weight: bold;
+  font-size: 28px;
+  font-family: "Times New Roman";
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.form-style button:hover {
+  background-color: #111827;
+  color: #6366f1;
+  font-weight: bold;
+}
+
+/* inputs */
+.form-style input[type="text"],
+.form-style input[type="password"],
+.form-style input[type="date"],
+.form-style input[type="datetime"],
+.form-style input[type="email"],
+.form-style input[type="number"],
+.form-style input[type="search"],
+.form-style input[type="time"],
+.form-style input[type="url"],
+.form-style textarea,
+.form-style select {
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+  background: #ffffff;
+  margin-bottom: 4%;
+  border: 1px solid #ccc;
+  padding: 3%;
+  color: #111827;
+  font: 95% Arial, Helvetica, sans-serif;
+}
+
+.form-style input[type="text"]:focus,
+.form-style input[type="password"]:focus,
+.form-style input[type="date"]:focus,
+.form-style input[type="datetime"]:focus,
+.form-style input[type="email"]:focus,
+.form-style input[type="number"]:focus,
+.form-style input[type="search"]:focus,
+.form-style input[type="time"]:focus,
+.form-style input[type="url"]:focus,
+.form-style textarea:focus,
+.form-style select:focus {
+  box-shadow: 0 0 5px #38bdf8;   /* cyan glow */
+  padding: 3%;
+  border: 1px solid #38bdf8;
+}
+
+/* ----- SPLIT LAYOUT (if used) ----- */
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 50;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.left {
+  left: 15;
+  border-right: 0px #6366f1 solid;
+}
+
+.right {
+  right: 0;
+  border-left: 1px #6366f1 solid;
+}
+
+/* ----- INPUT + MIC BAR ----- */
+.mytext {
+  border: 1px solid #111827;
+  border-right: none;
+  padding: 4px;
+  margin: 0px;
+  float: left;
+  height: 32px;
+  overflow: hidden;
+  line-height: 16px;
+  width: 300px;
+  margin-left: 54px;
+}
+
+.mic {
+  border: 1px solid #111827;
+  background: #6366f1;
+  vertical-align: top;
+  padding: 0px;
+  margin: 0;
+  float: left;
+  height: 42px;
+  overflow: hidden;
+  width: 5em;
+  text-align: center;
+  line-height: 16px;
+  color: #e5e7eb;
+}
+
+/* submit button beside mic */
+.submit {
+  border: 1px solid #111827;
+  height: 42px;
+  width: 160px;
+  text-align: center;
+  background-color: #6366f1;
+  color: #e5e7eb;
+  font-weight: bold;
+  font-size: 24px;
+  font-family: "Times New Roman";
+  vertical-align: top;
+  cursor: pointer;
+}
+
+.submit:hover {
+  background-color: #111827;
+  color: #6366f1;
+  font-weight: bold;
+}
+
+/* table text etc. */
+.td {
+  color: #e5e7eb;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* labels / helper text */
+.site-form span,
+.site-form label,
+label {
+  color: #e5e7eb;
+}
+
+/* errors */
+.errorlist {
+  color: #f97373;
+  font-weight: bold;
+}
+
+/* wrapper for page content */
+.wrapper {
+  padding: 20px;
+}
+</style>
+</head>
+<body>
+
+<div style="background-color:#0b1120;color:#e5e7eb;padding:10px 10px 1px 10px;border: 1px #6366f1 groove;margin-bottom:0;">
+  <h1 align="center">Audio To Sign Language Tool</h1>
+</div>
+
+<br>
+
+<ul id="nav">
+  <li class="li"><a class="active" href="{% url 'home' %}">Home</a></li>
+  <li class="li"><a href="{% url 'animation' %}">Convertor</a></li>
+  {% if not user.is_authenticated %}
+    <li class="li"><a href="{% url 'signup' %}">Sign Up</a></li>
+  {% endif %}
+  {% if user.is_authenticated %}
+    <li class="li"><a href="{% url 'logout' %}">Log-Out</a></li>
+  {% else %}
+    <li class="li"><a href="{% url 'login' %}">Log-in</a></li>
+  {% endif %}
+  <li class="li"><a href="{% url 'contact' %}">Contact</a></li>
+  <li class="li"><a href="{% url 'about' %}">About</a></li>
+</ul>
+
+<div class="wrapper">
+  {% block content %}
+  {% endblock %}
+</div>
+
+</body>
+</html>
